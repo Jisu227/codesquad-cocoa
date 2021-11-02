@@ -33,5 +33,9 @@ function calcCircle(radius, n = 0) {
   }
 }
 
+function calcRactangle(width, height) {
+  return width * height;
+}
+
 
 
