@@ -1,8 +1,9 @@
 // 1. getArea() 메서드를 구현해보자.
 
+let executionResult = [];
+let executionOrder = [];
+
 function getArea(shape) {
-  let executionResult = [];
-  let executionOrder = [];
   if(shape === 'circle') {
     console.log(calcCircle(arguments[1],arguments[2]));
     executionOrder.push('calcCircle');
@@ -41,4 +42,18 @@ function calcTrapezoid(upperSide, lowerSide, height) {
   return (upperSide + lowerSide) * height;
 }
 
+// test
 
+getArea('circle',10);
+getArea('ract',10,15);
+getArea('trapezoid',10,15,12);
+getArea('circle',1,3);
+
+
+// 2.  printExecutionSequence 함수만들기
+
+function printExecutionSequence() {
+  console.log(executionOrder.join());
+}
+
+printExecutionSequence();
