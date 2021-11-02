@@ -37,5 +37,8 @@ function calcRactangle(width, height) {
   return width * height;
 }
 
+function calcTrapezoid(upperSide, lowerSide, height) {
+  return (upperSide + lowerSide) * height;
+}
 
 
