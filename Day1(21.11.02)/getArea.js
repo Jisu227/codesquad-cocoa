@@ -20,4 +20,18 @@ function getArea(shape) {
   }
 }
 
+function calcCircle(radius, n = 0) {
+  if(n === 0) {
+    return radius * radius * 3.14;
+  } else {
+    let startNum = radius;
+    let sum = 0;
+    for(let i = startNum; i <= n; i++) {
+      sum += i * i * 3.14;
+    }
+    return sum;
+  }
+}
+
+
 
