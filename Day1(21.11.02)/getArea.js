@@ -50,10 +50,15 @@ getArea('trapezoid',10,15,12);
 getArea('circle',1,3);
 
 
-// 2.  printExecutionSequence 함수만들기
+// printExecutionSequence 함수 수정 
 
 function printExecutionSequence() {
-  console.log(executionOrder.join());
+  let result = '';
+  for(let i = 0; i < executionOrder.length; i++) {
+    result += `${executionOrder[i]} : ${executionResult[i]} \n`;
+  }
+  return result;
 }
 
-printExecutionSequence();
+console.log(printExecutionSequence());
+
