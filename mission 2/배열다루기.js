@@ -16,7 +16,7 @@ function calculate(m) {
 // (2) 아이디에서 숫자를 제거
 // (3) for / while 문 사용 버전
 
-function filterId(peoples) {
+/* function filterId(peoples) {
   let result = [];
   const regExp = /[`~!@#$%^&*|\\\'\";:\/?]/g;
   for(let i = 0; i < peoples.length; i++) {
@@ -25,8 +25,22 @@ function filterId(peoples) {
     }
   }
   return result;
-} 
+} */
 
+
+// (4) forEach, filter, map등의 고차함수를 사용한 함수 만들기
+function filterId(peoples) {
+  const regExp = /[`~!@#$%^&*|\\\'\";:\/?]/g;
+  let result = peoples.filter(people => !regExp.test(people)).map(people => people.replace(/[0-9]/g,''));
+  return result;
+}
+
+// cf. map() 메서드는 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환한다.
+// 예제.
+// const array = [1, 4, 9, 16];
+// const map = array.map(x => x * 2);
+// console.log(map);
+// 결과물 -> [2, 8, 18, 32]
 
 
 // 3. 평균구하기
