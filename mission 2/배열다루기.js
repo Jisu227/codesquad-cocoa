@@ -1,5 +1,5 @@
 // 1. factorial 함수 
-// - 재귀함수 : 함수가 자신을 다시 호출하는 구조로 만들어진 함수이다. 하지만 나는 재귀로 풀지 않았다..ㅎㅎ!
+// - 재귀함수 : 함수가 자신을 다시 호출하는 구조로 만들어진 함수이다.
 
 function calculate(m) {
   let result = [];
@@ -10,6 +10,24 @@ function calculate(m) {
   }
   return result;
 }
+
+// 2. 배열거르기 
+// (1) 특수기호가 있는 아이디 제외
+// (2) 아이디에서 숫자를 제거
+// (3) for / while 문 사용 버전
+
+function filterId(peoples) {
+  let result = [];
+  const regExp = /[`~!@#$%^&*|\\\'\";:\/?]/g;
+  for(let i = 0; i < peoples.length; i++) {
+    if(!regExp.test(peoples[i])) { // test(), match() 공부하기 
+      result.push(peoples[i].replace(/[0-9]/g,'')); // replace() 함수 정리하기
+    }
+  }
+  return result;
+} 
+
+
 
 // 3. 평균구하기
 
@@ -46,3 +64,6 @@ console.log(calculate(4));
 
 const grades = [[88,76,77], [33,44,44], [90,100,94], [30,44,98]];
 console.log(calcGrades(grades))
+
+const peoples = ["crong!@#", "honux5", "sarah#", "hea3d", "zello", "5lucas"];
+console.log(filterId(peoples));
