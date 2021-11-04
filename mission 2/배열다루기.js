@@ -16,12 +16,29 @@ function calculate(m) {
 function calcGrades(grades) {
   let result = '';
   let sum = 0;
+  let maxGrades = [];
+  let maxGrade = 0;
+  let highScore = 0;
+  
   for(let i = 0; i < grades.length; i++) { // 각 학생의 평균점수구하고 출력하기
     sum = grades[i].reduce((a,b) => a + b) / grades[i].length;
     result += `${i+1}번째 학생의 평균점수는 ${sum.toFixed(2)} 입니다. \n`;
   }
+
+  for(let i = 0; i < grades.length; i++) { // 모든 학생의 최고점수를 구하여 maxGrade 배열에 push 하여 준다.
+    maxGrade = 0;
+    for(let j = 0; j < grades[i].length; j++) {
+      if(grades[i][j] > maxGrade) {
+        maxGrade = grades[i][j];
+      }
+    }
+    maxGrades.push(maxGrade);
+  };
+
+  highScore = maxGrades.reduce((a,b)=> a + b) / maxGrades.length; // 최고점수들의 평균을 구하여 준다.
+  result += `모든 학생의 최고점수의 평균점수는 ${highScore} 입니다.`;
   return result;
-}
+}  
 
 // test
 
