@@ -30,11 +30,15 @@ function saveDepth(data) {
   }
 }
 
-function saveElementsCount(data) { // 원소의 개수 출력하는 메서드
-  let regExp = /[0-9]/gi; // 숫자를 추출하는 정규식
-  let result = data.replace(regExp, ""); // 문자열에서 숫자는 빈 문자열로 바꿔주고 result에 담아준다.
-  result = result.split(''); // 배열로 바꿔준다.
-  return data.length - result.length;
+function saveElementsCount(data) { // 요소의 개수 출력하는 메서드 (피드백 반영)
+  const splitData = data.split('');
+  let nanCount = 0;
+  for(let i = 0; i < splitData.length; i++) {
+    if(isNaN(splitData[i])) {
+      nanCount ++;
+    }
+  }
+  return splitData.length - nanCount;
 }
 
 // test
